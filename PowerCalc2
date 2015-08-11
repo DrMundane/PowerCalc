@@ -1,0 +1,31 @@
+def lights()
+	print "How many lights of this type do you have? "
+	lightnum = gets.chomp.to_i
+	print "Input power consumption of 1 light (in watts): "
+	watt = gets.chomp.to_i
+	totalwatt = watt*lightnum
+	return lightnum, totalwatt
+end
+#####################################################################
+totallights = 0
+grandtotalwatt = 0
+
+print "Input 120/240/etc. Service: "
+service = gets.chomp.to_i
+
+print "Do you have any lights to input? [y/RETURN or n] "
+morelights = gets.chomp
+
+until morelights == "n"
+	puts "..............................."
+	templights, temptotalwatt = lights()
+	totallights += templights
+	grandtotalwatt += temptotalwatt
+	print "Do you have any lights to input? [y/RETURN or n] " #really anything or n
+	morelights = gets.chomp
+end
+
+puts "..............................."
+puts "You have #{totallights} lights which use #{grandtotalwatt} watts of power."
+amps = Float(grandtotalwatt)/service
+puts "This is equal to #{amps} amps with a #{service} service."
