@@ -69,42 +69,49 @@ end
 
 
 ###################LAYER-OF-ABSTRACTION!!!!!!!!####################
-puts "Welcome to Power Calculator MKII!!"
-puts "Please select a command from the following: "
-puts "  1: The Original Power Calculator"
-puts "  2: Light Tracker: Like Spreadsheets but BETTER!!1! (worse) "
-puts "  3: SOMETHING ELSE"
-puts "  4: SAMPLE TEXT"
+loop do
 
-print "Your selection: "
-selection = gets.chomp
+  puts "Welcome to Power Calculator MKII!!"
+  puts "Please select a command from the following: "
+  puts "  1: The Original Power Calculator"
+  puts "  2: Light Tracker: Like Spreadsheets but BETTER!!1! (worse) "
+  puts "  3: SOMETHING ELSE"
+  puts "  4: SAMPLE TEXT"
+  puts "  q: Exit PowerCalc"
 
-if selection == "1"
-  power_calc()
+  print "Your selection: "
+  selection = gets.chomp
+
+  if selection == "1"
+    power_calc()
   
-elsif selection == "2"
-  go = "BUTTS"
-  list = Array.new
-  until go == "n"
-    list << light_tracker()
-    puts "Do you want to add another light? [Y/N]"
-    go = gets.chomp.downcase
+  elsif selection == "2"
+    go = "BUTTS"
+    list = Array.new
+      until go == "n"
+        list << light_tracker()
+        puts "Do you want to add another light? [Y/N]"
+        go = gets.chomp.downcase
+      end
+    puts list.to_s
+    puts "Do you want to view any light details? [Y/N]"
+    input = gets.chomp.downcase
+      if input == "y"
+        puts "SOMEDAY I'LL WRITRE THIS ROUTINE"
+      else
+        puts "GOODBYE"
+      end
+
+  elsif selection == "3"
+    puts "NOT A VALID SELECTION!"
+
+  elsif selection == "4"
+    puts "BUTTS"
+
+  elsif selection == "q"
+    puts "Thanks for using PowerCalc!"
+    exit(0)
   end
-  puts list.to_s
-  puts "Do you want to view any light details? [Y/N]"
-  input = gets.chomp.downcase
-  if input == "y"
-  puts "SOMEDAY I'LL WRITRE THIS ROUTINE"
-  else
-  puts "GOODBYE"
-  end
-
-
-elsif selection == "3"
-  puts "NOT A VALID SELECTION!"
-
-elsif selection == "4"
-  puts "BUTTS"
 end
 
 #TEST COMMENT PLEASE IGNORE
